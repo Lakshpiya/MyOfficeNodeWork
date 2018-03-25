@@ -1,8 +1,65 @@
 
 
 
-<div style="background-color:#ffffff;width:100%;margin-top:50px;">
+<form class="omb_loginForm" action="index" autocomplete="off" method="POST">
+	<div class="input-group" style="margin-top:20px;">
+		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+		<input type="text" class="form-control" id="track" name="track" autocomplete="track" placeholder="Get Your Musical track">
+	</div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Get Detail</button>
+</form>
 
-     <h1>ABOUT US</h1>
-
+<div class="container">
+    {{#if test}}
+    <div class="row" style="margin-bottom: 60px;">
+       {{#each test}}
+                
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col col-sm-4">
+                                        <a href='{{this.trackViewUrl}}' target="_blank">
+                                        <img src='{{this.artworkUrl100}}' class="img-thumbnail" alt='{{this.artistName}}'>
+                                        </a>
+                                    </div>
+                                    <div class="col col-sm-8">
+                                        <p class="amtCurr text-left text-truncate" title='{{this.artistName}}'>{{this.artistName}}</p>
+                                        <p class="amtCurr text-left har_shop_price">{{this.currency}}{{this.collectionPrice}}</p>
+                                    </div>
+                                </div>
+                                <div class="trackName" title='{{this.trackName}}'>{{this.trackName}}
+                                </div>
+                                
+                                <div class="line"></div>
+                                
+                                    <div class="har_shop_desc">Available On</div>
+                                    
+                                     <span class="har_shop_soc_c">
+                                         <a href='{{this.previewUrl}}'><img src="/images/headphone.png" alt="Track" class="imgCls"></img></a>                                     
+                                     </span>                                     
+                                <div class="line"></div>
+                                <div class="row">
+                                        <div class="col col-sm-4">
+                                            <a class=" badge badge-primary" href={{this.artistViewUrl}} target="_blank">View details</a>
+                                        </div>
+                                        <div class="add-favourites col col-sm-8" id='{{this.artistId}}' style="display:block">
+                                                <a class="badge badge-success" title={{this.artistId}}  onclick="AddItem();">Add to favourites</a>
+                                        </div>
+                                         
+                                        <div class="trackName fevRemove" title='{{this.artistId}}'>
+                                           <a class="badge-remove  hide" onclick="RemoveItem();" href="#"  id='favStar{{this.artistId}}'>
+                                               <img src="/images/star.png" alt="Fev Item" class="imgCls"></img>
+                                            </a>
+                                         </div>                                      
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div> 
+        {{/each}}
+    </div>
+    {{else}}
+    <p><em>There are currently no data.</em></p>
+    {{/if}}
 </div>

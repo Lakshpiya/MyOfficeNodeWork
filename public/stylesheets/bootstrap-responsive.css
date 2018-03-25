@@ -831,6 +831,7 @@
   .row,
   .thumbnails {
     margin-left: 0;
+    margin-top:0;
   }
   .thumbnails > li {
     float: none;
