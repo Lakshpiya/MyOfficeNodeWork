@@ -21,7 +21,7 @@ router.get('/about', function (req, res, next) {
 router.post('/login', function(req, res, next) {
   console.log("HI Rahul UserName "+req.body.username);
   console.log("HI Rahul PAssword "+req.body.password);
-  res.render('loggedInUser', { title: 'Laksh Office Work',layout:'loggedInlayout.hbs'});
+  res.render('/loggedInUser', { title: 'Laksh Office Work',layout:'loggedInlayout.hbs'});
 });
 
 
