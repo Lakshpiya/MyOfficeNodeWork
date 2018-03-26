@@ -14,7 +14,7 @@
     <div class="row" style="margin-bottom: 60px;">
        {{#each test}}
                 
-                    <div class="col-12 col-md-6 col-lg-4">
+                    <div class="col-12 col-md-6 col-lg-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
@@ -26,7 +26,12 @@
                                     <div class="col col-sm-8">
                                         <p class="amtCurr text-left text-truncate" title='{{this.artistName}}'>{{this.artistName}}</p>
                                         <p class="amtCurr text-left har_shop_price">{{this.currency}}{{this.collectionPrice}}</p>
+                                        <audio controls="controls">
+                                        <source src='{{this.previewUrl}}' type="audio/mpeg">
+                                        </audio>
+
                                     </div>
+                                      
                                 </div>
                                 <div class="trackName" title='{{this.trackName}}'>{{this.trackName}}
                                 </div>
@@ -34,10 +39,19 @@
                                 <div class="line"></div>
                                 
                                     <div class="har_shop_desc">Available On</div>
-                                    
-                                     <span class="har_shop_soc_c">
-                                         <a href='{{this.previewUrl}}'><img src="/images/headphone.png" alt="Track" class="imgCls"></img></a>                                     
-                                     </span>                                     
+                                    <div style="height:22px">
+                                        <div style="float: left">
+                                            <span class="har_shop_soc_c">
+                                                <a href='{{this.previewUrl}}'><img src="/images/headphone.png" alt="Track" class="imgCls"></img></a>                                     
+                                            </span> 
+                                        </div>
+                                        <div class="trackName fevRemove" style="margin-left:50px;">
+                                           <a class="badge-remove  hide" onclick="RemoveItem();"  title='{{this.artistId}}'  id='favStar{{this.artistId}}' style="cursor: pointer;">
+                                               <img src="/images/star.png" alt="Fev Item" class="imgCls"></img>
+                                            </a>
+                                        </div> 
+                                    </div>
+                                                                         
                                 <div class="line"></div>
                                 <div class="row">
                                         <div class="col col-sm-4">
@@ -45,13 +59,8 @@
                                         </div>
                                         <div class="add-favourites col col-sm-8" id='{{this.artistId}}' style="display:block">
                                                 <a class="badge badge-success" title={{this.artistId}}  onclick="AddItem();">Add to favourites</a>
-                                        </div>
-                                         
-                                        <div class="trackName fevRemove" title='{{this.artistId}}'>
-                                           <a class="badge-remove  hide" onclick="RemoveItem();" href="#"  id='favStar{{this.artistId}}'>
-                                               <img src="/images/star.png" alt="Fev Item" class="imgCls"></img>
-                                            </a>
-                                         </div>                                      
+                                        </div>                                         
+                                                                           
                                 </div>
                                 
                             </div>
