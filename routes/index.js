@@ -36,7 +36,7 @@ router.get('/loggedInUser',function(req, res, next){
       console.log(err);
     } else {      
       console.log(response.results);
-      res.render('aboutus',{test:response.results});
+      res.render('loggedInUser',{test:response.results});
     }  
   }); 
 
@@ -57,7 +57,7 @@ router.post('/loggedInUser', function(req, res, next) {
       console.log(err);
     } else {      
       console.log(response.results);
-      res.render('aboutus',{test:response.results});
+      res.render('loggedInUser',{test:response.results});
     }  
   });
    
