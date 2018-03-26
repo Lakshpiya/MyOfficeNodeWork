@@ -13,8 +13,15 @@ router.get('/login', function (req, res, next) {
   res.render('index', { title: 'Laksh Office Work' });
 });
 
+router.post('/login', function(req, res, next) {
+  console.log("HI Rahul UserName "+req.body.username);
+  console.log("HI Rahul PAssword "+req.body.password);
+  res.render('loggedInUser', { title: 'Laksh Office Work',layout:'loggedInlayout.hbs'});
+});
+
+
 /*about us page */
-router.get('/about',function(req, res, next){
+router.get('/loggedInUser',function(req, res, next){
   var options = {
     term: "LATA"
     , media: "music" // options are: podcast, music, musicVideo, audiobook, shortFilm, tvShow, software, ebook, all
@@ -35,7 +42,7 @@ router.get('/about',function(req, res, next){
 
 });
 
-router.post('/index', function(req, res, next) {
+router.post('/loggedInUser', function(req, res, next) {
   var options = {
     term: req.body.track
     , media: "music" // options are: podcast, music, musicVideo, audiobook, shortFilm, tvShow, software, ebook, all
@@ -56,8 +63,11 @@ router.post('/index', function(req, res, next) {
    
 });
 
-
-
+router.post('/contact', function(req, res, next) {
+     console.log("Hi Rahul"+req.body.track);
+     console.log("Hi Rahul Gupta"+req.body.hdnin);
+     console.log("Hi Rahul Gupta"+req.body.hdnin);
+});
 
 
 /*Forget password page*/

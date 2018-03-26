@@ -16,7 +16,9 @@
     <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
     <link rel='stylesheet' href='/stylesheets/bootstrap-responsive.css' />
     <link rel='stylesheet' href='/stylesheets/font-awesome.css' />
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' />
+
+
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
     <script type='text/javascript' src='/javascripts/tether.min.js'></script>
     <script type='text/javascript' src='/javascripts/bootstrap.js'></script>    
@@ -25,33 +27,27 @@
     <script type='text/javascript' src='/javascripts/script.js'></script>
   </head>
   <body id="home" class="homepage">
-<div class="navbar navbar-inverse navbar-fixed-top navbar-inverseHeaderlogo hdbgCol">
+<div class="navbar navbar-inverse navbar-fixed-top navbar-inverseHeaderlogo loggedinhdbgCol">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
-                
+                </button>                
                 <a href="/" title="Laksh Work"><img src="/images/CD-Music.png" 
-                alt="Laksh Work" style="margin-left:20px;padding-top:2px;padding-left:2px;padding-bottom:2px;width:50px;height:50px"></a>
-
+                   alt="Laksh Work" style="margin-left:20px;padding-top:2px;padding-left:2px;padding-bottom:2px;width:50px;height:50px">
+                </a> 
             </div>
-
-
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/" title="Home">Home</a></li>
-                    <li><a href="/about" title="AboutUs">AboutUs</a></li>
-                    <li><a href="/contact" title="ContactUs">ContactUs</a></li>
-
-
+            <div style="float:right;">
+            <p style="color:#fff;font-weight:bold;margin-top:10px;font-size:20pt;">Hi Rauhl Welcome!</p>
+            </div>
+            <div class="navbar-collapse collapse">                
+                <ul class="nav navbar-nav navbar-right">        
+                     <li>
+                         <a href="/login" id="loginLink" title="Login" style="color:#fff;cursor:pointer;font-size:10pt;">Log out</a>
+                     </li>
                 </ul>
-                    <ul class="nav navbar-nav navbar-right">
-        <li><a href="/register" id="registerLink" title="Registration">Register</a></li>
-        <li><a href="/login" id="loginLink" title="Login">Log in</a></li>
-    </ul>
 
             </div>
         </div>
@@ -60,7 +56,7 @@
     {{{body}}}
   
 
-    <footer class="footer-distributed">
+    <footer class="footer-distributed loggedinhdbgCol">
 
 			<div class="footer-right">
 
@@ -75,15 +71,13 @@
 
 				<p class="footer-links">
 					<a href="#">Home</a>
-					·
-					
+					·					
 					<a href="#">About</a>
-					·
-					
+					·					
 					<a href="#">Contact</a>
 				</p>
 
-				<p>Company Name &copy; 2018</p>
+				<p style="color:#fff;">Company Name &copy; 2018</p>
 			</div>
 
 		</footer>
