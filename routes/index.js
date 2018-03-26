@@ -13,6 +13,11 @@ router.get('/login', function (req, res, next) {
   res.render('index', { title: 'Laksh Office Work' });
 });
 
+router.get('/about', function (req, res, next) {  
+  res.render('aboutus');
+});
+
+
 router.post('/login', function(req, res, next) {
   console.log("HI Rahul UserName "+req.body.username);
   console.log("HI Rahul PAssword "+req.body.password);
