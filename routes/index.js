@@ -39,18 +39,27 @@ router.get('/fevlist', function (req, res, next) {
 
 router.post('/fevlist', function(req, res, next) {
   console.log(req.body.hdnFI); 
-  var fevItemList=req.body.hdnFI;
+  var fevItemList="$Ameritz Indian Karaoke#624354490$Karaoke#624354480";//req.body.hdnFI;
   if(fevItemList !="undefine" && fevItemList.length > 0)
     {
       var fevItemArraylist=fevItemList.split("$");
+      var o = {};
+      var key = 'FevItemList';
+      o[key] = []; 
+      var Objvalue=""
       fevItemArraylist.forEach(function(value){
         if(value.length>0)
           {
-       console.log(value);
+            console.log(value);
+            Objvalue = {
+                       artistName: value.split("#")[0],
+                       artistId: value.split("#")[1]
+                     };
+                     o[key].push(Objvalue);
           }
       });
     }
-
+    console.log(JSON.stringify(o));
 });
 
 /*about us page */
