@@ -33,13 +33,24 @@ router.post('/login', function(req, res, next) {
 });
 
 
-router.get('/fevlist', function (req, res, next) { 
-    
+router.get('/fevlist', function (req, res, next) {
   res.render('fevList', { layout:'loggedInlayout.hbs',title: 'Laksh Office Work' });
 });
 
 router.post('/fevlist', function(req, res, next) {
   console.log(req.body.hdnFI); 
+  var fevItemList=req.body.hdnFI;
+  if(fevItemList !="undefine" && fevItemList.length > 0)
+    {
+      var fevItemArraylist=fevItemList.split("$");
+      fevItemArraylist.forEach(function(value){
+        if(value.length>0)
+          {
+       console.log(value);
+          }
+      });
+    }
+
 });
 
 /*about us page */
