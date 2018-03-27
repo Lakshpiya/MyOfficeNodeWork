@@ -1,16 +1,21 @@
 
 //Check The items in the local storage
 $(document).ready(function(){
-	 
+	 var favItemList="";
 	 if(localStorage.length > 0)
-	 {
+	 {		
 		for ( var i = 0, len = localStorage.length; i < len; ++i ) {
 			var trackId=localStorage.getItem( localStorage.key( i ) );
-			$("#"+trackId).addClass('hide');
-			$("#favStar"+trackId).removeClass('hide');
-			$("#favStar"+trackId).addClass('show');
+            var favItems=trackId.split("#");
+			var id=trackId.split("#")[1];
+			favItemList=favItemList+"$"+trackId;	
+			$("#"+id).addClass('hide');
+			$("#favStar"+id).removeClass('hide');
+			$("#favStar"+id).addClass('show');
 		  }
+		  $("#hdnFI").val(favItemList);		
 	 }
+	 
 })
 
 
@@ -19,9 +24,10 @@ function AddItem()
 {
 $(".badge-success").click(function(e){	
 	var trackId=$(this).attr('title');	
+	var favItem=$(this).attr('fevItem');
 	$("#"+trackId).removeClass('show');	
 	$("#"+trackId).addClass('hide');
-	localStorage.setItem("trackId"+trackId, trackId);
+	localStorage.setItem("trackId"+trackId, favItem);
 	$("#favStar"+trackId).removeClass('hide');
 	$("#favStar"+trackId).addClass('show');
 	
@@ -40,3 +46,5 @@ $(".badge-remove").click(function(e){
 	localStorage.removeItem("trackId"+trackId);	
 });
 }
+
+

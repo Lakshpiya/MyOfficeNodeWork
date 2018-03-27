@@ -1,11 +1,28 @@
 
+
+<div class="row card" style="margin-top:10px;padding-left:10px;padding-right:10px;">
+
 <form class="omb_loginForm" action="/loggedInUser" autocomplete="off" method="POST">
 	<div class="input-group" style="margin-top:20px;">
-		<span class="input-group-addon"><i class="fa fa-user"></i></span>
-		<input type="text" class="form-control" id="track" name="track" autocomplete="track" placeholder="Get Your Musical track">
-	</div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Get Detail</button>
+		<span class="input-group-addon"><i class="fa fa-search"></i></span>
+		<input type="text" class="form-control" id="track" name="track" autocomplete="off" required placeholder="Get Your Musical track">               
+	</div>    
+    <button class="btn btn-block loggedinhdbgCol" style="color:#000!important;" type="submit">Get Detail</button>
 </form>
+
+<div style="padding-bottom:10px;margin-top:10px;">
+    
+    {{!-- <a href="/fevlist?fevItems="+ id="fevItem" title="Your Saved Fav Items" class="fev" style="color:#000;cursor:pointer;font-size:10pt;">Favourate Items</a> --}}
+
+    <form method="POST" action="/fevlist")>    
+    <input type="hidden" id="hdnFI" name="hdnFI" value=""/>
+    <button type="submit" title="Your Saved Fav Items" style="color:#000;cursor:pointer;font-size:10pt;">Favourate Items</button>
+    </form>
+</div>
+
+
+</div>
+
 
 <div class="container">
     {{#if test}}
@@ -56,7 +73,7 @@
                                             <a class=" badge badge-primary" href={{this.artistViewUrl}} target="_blank">View details</a>
                                         </div>
                                         <div class="add-favourites col col-sm-8" id='{{this.artistId}}' style="display:block">
-                                                <a class="badge badge-success" title={{this.artistId}}  onclick="AddItem();">Add to favourites</a>
+                                                <a class="badge badge-success" title={{this.artistId}} fevItem='{{this.artistName}}#{{this.artistId}}' onclick="AddItem();">Add to favourites</a>
                                         </div>                                         
                                                                            
                                 </div>
