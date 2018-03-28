@@ -39,28 +39,52 @@ router.get('/fevlist', function (req, res, next) {
 
 router.post('/fevlist', function(req, res, next) {
   console.log(req.body.hdnFI); 
-  var fevItemList="$Ameritz Indian Karaoke#624354490$Karaoke#624354480";//req.body.hdnFI;
+  var fevItemList=req.body.hdnFI;//"$Ameritz Indian Karaoke#624354490$Karaoke#624354480";
   if(fevItemList !="undefine" && fevItemList.length > 0)
     {
-      var fevItemArraylist=fevItemList.split("$");
-      var o = {};
-      var key = 'FevItemList';
-      o[key] = []; 
-      var Objvalue=""
+      var fevItemArraylist=fevItemList.split("$");      
+      var Objvalue=[];
       fevItemArraylist.forEach(function(value){
         if(value.length>0)
           {
             console.log(value);
-            Objvalue = {
+            Objvalue1 = {
                        artistName: value.split("#")[0],
                        artistId: value.split("#")[1]
-                     };
-                     o[key].push(Objvalue);
+                     };                     
+                     Objvalue.push(Objvalue1);
           }
       });
-    }
-    console.log(JSON.stringify(o));
+    }    
+    //var test1=JSON.stringify(Objvalue); Testing only       
+    res.render('fevList',{layout:'loggedInlayout.hbs',test:Objvalue});
+    
 });
+
+router.post('/getfevItem', function(req, res, next) { 
+  console.log(req.body.hdnFTI) ;
+  var test1= JSON.parse(req.body.hdnFTI);  
+  var Objvalue=[];
+  if(test1 !=null && test1 !="undefine" &&   test1.length > 0)
+    {
+       test1.forEach(function(value){
+         console.log(value.val); 
+         if(value.val.length>0)
+          {
+            console.log(value.val);
+            Objvalue1 = {
+                       artistName: value.val.split("#")[0],
+                       artistId: value.val.split("#")[1]
+                     };                     
+                     Objvalue.push(Objvalue1);
+          }        
+       });
+       res.render('fevList',{layout:'loggedInlayout.hbs',test:Objvalue});            
+    }     
+});
+
+
+
 
 /*about us page */
 router.get('/loggedInUser',function(req, res, next){
@@ -73,7 +97,7 @@ router.post('/loggedInUser', function(req, res, next) {
     , media: "music" // options are: podcast, music, musicVideo, audiobook, shortFilm, tvShow, software, ebook, all
     , entity: "musicTrack"
     , attribute: "songTerm"
-    , limit: 10    
+    , limit: 1    
     };
     
     
@@ -81,6 +105,8 @@ router.post('/loggedInUser', function(req, res, next) {
     if (err) {
       console.log(err);
     } else { 
+      console.log(response);
+      
       res.render('loggedInUser',{layout:'loggedInlayout.hbs',test:response.results});
     }  
   });
