@@ -97,7 +97,7 @@ router.post('/loggedInUser', function(req, res, next) {
     , media: "music" // options are: podcast, music, musicVideo, audiobook, shortFilm, tvShow, software, ebook, all
     , entity: "musicTrack"
     , attribute: "songTerm"
-    , limit: 1    
+    , limit: 20    
     };
     
     
