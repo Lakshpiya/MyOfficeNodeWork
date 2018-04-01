@@ -25,7 +25,7 @@ router.post('/login', function(req, res, next) {
   
   if(emailId.toLowerCase()=="rahul.gupta@dnata.com" && pwd=="786786" )
   {
-    res.render('loggedInUser', { title: 'Laksh Office Work',layout:'loggedInlayout.hbs',loggedInuser:'Laksh'});
+    res.render('loggedInUser', { title: 'Laksh Office Work',layout:'loggedInlayout.hbs',loggedInuser:'Rahul'});
   }
   else{
      res.render('error', { title: 'Laksh Office Work',errorMsg:'Invalid UserId and Password.'});
