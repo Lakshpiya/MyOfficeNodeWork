@@ -55,14 +55,17 @@ function findLocalItems () {
 	var i, results = [];
 		for (i in localStorage) {
 	  	if (localStorage.hasOwnProperty(i)) {
-			if (i.match(query) || (!query && typeof i === 'string')) {			 
-				value = localStorage.getItem(i);
-				
-			     	results.push({key:i,val:value});
-					
+		var item=localStorage.getItem(i);
+		if (item.toLowerCase().indexOf(query) >= 0)
+			{
+				value = item;
+				results.push({key:i,val:value});
 			}
+			// if (i.match(query) || (!query && typeof i === 'string')) {			 
+			// 	value = localStorage.getItem(i);				
+			//     results.push({key:i,val:value});					
+			// }
 	  }
-	}
-	alert(JSON.stringify(results));
+	}		
 	$("#hdnFTI").val(JSON.stringify(results));	
 }

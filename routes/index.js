@@ -34,7 +34,7 @@ router.post('/login', function(req, res, next) {
 
 
 router.get('/fevlist', function (req, res, next) {
-  res.render('fevList', { layout:'loggedInlayout.hbs',title: 'Laksh Office Work' });
+  res.render('fevList', { layout:'loggedInlayout.hbs',title: 'Laksh Office Work',loggedInuser:'Rahul' });
 });
 
 router.post('/fevlist', function(req, res, next) {
@@ -57,7 +57,7 @@ router.post('/fevlist', function(req, res, next) {
       });
     }    
     //var test1=JSON.stringify(Objvalue); Testing only       
-    res.render('fevList',{layout:'loggedInlayout.hbs',test:Objvalue});
+    res.render('fevList',{layout:'loggedInlayout.hbs',test:Objvalue,loggedInuser:'Rahul'});
     
 });
 
@@ -79,7 +79,7 @@ router.post('/getfevItem', function(req, res, next) {
                      Objvalue.push(Objvalue1);
           }        
        });
-       res.render('fevList',{layout:'loggedInlayout.hbs',test:Objvalue});            
+       res.render('fevList',{layout:'loggedInlayout.hbs',test:Objvalue,loggedInuser:'Rahul'});            
     }     
 });
 
@@ -107,7 +107,7 @@ router.post('/loggedInUser', function(req, res, next) {
     } else { 
       console.log(response);
       
-      res.render('loggedInUser',{layout:'loggedInlayout.hbs',test:response.results});
+      res.render('loggedInUser',{layout:'loggedInlayout.hbs',test:response.results,loggedInuser:'Rahul'});
     }  
   });
    
