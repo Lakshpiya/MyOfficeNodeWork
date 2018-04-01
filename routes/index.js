@@ -23,7 +23,7 @@ router.post('/login', function(req, res, next) {
   var emailId=req.body.username;
   var pwd=req.body.password;  
   
-  if(emailId=="rahul.gupta@dnata.com" && pwd=="786786" )
+  if(emailId.toLower()=="rahul.gupta@dnata.com" && pwd=="786786" )
   {
     res.render('loggedInUser', { title: 'Laksh Office Work',layout:'loggedInlayout.hbs',loggedInuser:'Laksh'});
   }
