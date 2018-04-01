@@ -28,7 +28,7 @@ router.post('/login', function(req, res, next) {
     res.render('loggedInUser', { title: 'Laksh Office Work',layout:'loggedInlayout.hbs',loggedInuser:'Laksh'});
   }
   else{
-     res.render('error', { title: 'Laksh Office Work',layout:'layout.hbs',errorMsg:'Invalid UserId and Password.'});
+     res.render('error', { title: 'Laksh Office Work',errorMsg:'Invalid UserId and Password.'});
   }
 });
 
